@@ -35,7 +35,7 @@ export default {
       <!-- Home Icon -->
       <router-link to="/">
         <a class="navbar-brand">
-          <img src="\img\logo\Logo.png" alt="" />
+          <img src="\img\logo\pngegg.png" alt="" />
         </a>
       </router-link>
       <!-- Toggle button for mobile view -->
@@ -51,14 +51,14 @@ export default {
               <a class="nav-link text-center nav_voice" aria-current="page">Home</a>
             </router-link>
             <a class="nav-link text-center nav_voice" href="#">Delivery</a>
-            <a class="nav-link text-center nav_voice" href="#">Payment</a>
-            <a class="nav-link text-center nav_voice" href="#">Contact</a>
-            <a class="nav-link text-center nav_voice" href="#">About</a>
+            <a class="nav-link text-center nav_voice" href="#">Pagamenti</a>
+            <a class="nav-link text-center nav_voice" href="#">Contatti</a>
+            <a class="nav-link text-center nav_voice" href="#">About Us</a>
             <span id="space"></span>
             <!-- Login Button -->
             <a class="text-center" href="http://127.0.0.1:8000">
               <button class="btn btn-sm ms-auto my_button" type="button">
-                <span class=" text-capitalize">start</span>
+                <span class=" text-capitalize"><i class="fa-solid fa-bell-concierge"></i> Login Ristoratori</span>
               </button>
             </a>
           </div>
@@ -138,10 +138,12 @@ export default {
         @include primary_button_style;
 
         font-weight: 600;
-        border: 1px solid $deactivated_text;
+        border: 1px solid $secondary_color;
 
         margin-left: auto;
         margin-right: auto;
+
+        font-size: 1.05rem;
 
         &:hover {
           background-color: $primary_color;
@@ -151,6 +153,11 @@ export default {
 
         span {
           font-weight: 800;
+          
+          i {
+            font-size: 1.2rem;
+            margin-right: .3rem;
+          }
         }
       }
     }
