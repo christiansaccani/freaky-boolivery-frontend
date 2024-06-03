@@ -7,16 +7,16 @@ export default {
 </script>
 
 <template>
-    <div class="container-md mt-3 mt-lg-5 mb-5 nunito-header">
+    <div class="nunito-header">
 
-        <div class="jumbotron gap-5 gap-lg-0 row d-flex align-items-center">
+        <div class="jumbotron gap-5 gap-lg-0 row d-flex align-items-center my_jumbo">
 
             <div class="col-lg-6 col-12 h-100 d-flex justify-content-center">
                 <div class="d-flex justify-content-center jumbotron-content">
                     <h1 class="text-uppercase">Boolivery</h1>
-                    <h2 class="text-capitalize">Delivery</h2>
-                    <p class="text-capitalize">This Delicious Hamburger.</p>
-                    <button class="flip-horizontal-bottom">Right To Your Doorstep!</button>
+                    <h2 class="text-capitalize">Consegne da Paura!</h2>
+                    <!-- <p class="text-capitalize">This Delicious Hamburger.</p>
+                    <button class="flip-horizontal-bottom">!</button> -->
                 </div>
             </div>
 
@@ -41,10 +41,9 @@ export default {
 
 .jumbotron {
     position: relative;
-    margin: 1rem 0;
 
     @media screen and (min-width: 992px) {
-        background-color: $background_color_dark;
+        background-color: $secondary_color;
         border-top-left-radius: 1rem;
         border-top-right-radius: 100px;
         border-bottom-right-radius: 1rem;
@@ -56,7 +55,7 @@ export default {
         width: 100%;
         height: 100%;
         object-fit: center;
-        // box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+
         border-top-right-radius: 100px;
         border-bottom-right-radius: 1rem;
 
