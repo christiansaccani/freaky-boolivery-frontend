@@ -156,15 +156,23 @@ export default {
   transform: translate(0%, 30%) scale(1.1);
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (min-width: 946px) and (max-width: 1200px) {
   .my_btn {
     display: none;
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 946px) {
   .my_card {
-    max-width: 600px;
+    max-width: 372px;
   }
+  
+}
+
+@media screen and (max-width: 768px) {
+  .my_card {
+    max-width: 452px;
+  }
+  
 }
 </style>

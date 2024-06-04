@@ -108,7 +108,7 @@ export default {
 </script>
 
 <template>
-  <section class="rounded-5 mb-5">
+  <section class="rounded-5">
     <nav>
       <h3>Popular <span>Category</span></h3>
 
@@ -238,8 +238,6 @@ section {
 
   background-color: $background_color_dark;
   padding: 30px 0 40px;
-
-  margin-bottom: 1rem;
 
   nav {
     display: flex;
@@ -502,6 +500,13 @@ section {
   section nav .type_res_button:last-child {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
+  }
+}
+
+@media screen and (max-width: 946px) {
+  #cards_section {
+    flex-flow: row wrap !important;
+    row-gap: 2rem !important;
   }
 }
 
