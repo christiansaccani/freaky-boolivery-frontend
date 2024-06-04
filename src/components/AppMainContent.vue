@@ -2,11 +2,12 @@
 import axios from "axios";
 import AppCardItem from "./AppCardItem.vue";
 
-// import Swiper bundle with all modules installed
-import Swiper from "swiper/bundle";
+// import Swiper JS
+import Swiper from "swiper";
+// import Swiper styles
+import "swiper/css";
 
-// import styles bundle
-import "swiper/css/bundle";
+const swiper = new Swiper(".swiper");
 
 export default {
   name: "AppMainContent",
@@ -102,164 +103,242 @@ export default {
 
   mounted() {
     this.apiCall();
-
-    //load carousel after DOM is loaded
-    this.$nextTick(() => {
-      new Swiper(".swiper", {
-        loop: true,
-        slidesPerView: 3,
-        spaceBetween: 30,
-        pagination: {
-          clickable: true,
-        },
-        breakpoints: {
-          1024: {
-            slidesPerView: 6,
-            spaceBetween: 1,
-          },
-          768: {
-            slidesPerView: 4,
-            spaceBetween: 30,
-          },
-          640: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-          },
-
-          420: {
-            slidesPerView: 3,
-            spaceBetween: 17,
-          },
-
-          320: {
-            slidesPerView: 3,
-            spaceBetween: 17,
-          },
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
-    });
   },
 };
 </script>
 
 <template>
-  <div class="bg_container nunito-main-content rounded-5 mb-5">
-    <div class="container_big container d-flex flex-column">
-      <nav class="mb-3">
-        <h3 class="p-0 m-0 mb-3 mt-4"><span>Categories</span></h3>
+  <section class="rounded-5 mb-5">
+    <nav>
+      <h3>Popular <span>Category</span></h3>
 
-        <!-- Da implementare una volta realizzati i counter -->
-        <div class="swiper px-3">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide food_types justify-content-center" v-for="type in types">
-              <input class="form-check-input d-none" type="checkbox" role="switch" :value="type.type" :id="type.type"
-                :name="type.type" v-model="checkButtonValue" @change="apiFilterTypes()" />
-              <label class="form-check-label custom-checkbox-label" :for="type.type">{{ type.type }}</label>
+      <!-- Da implementare una volta realizzati i counter -->
+      <div id="food_types">
+        <button class="type_res_button">Italian</button>
+        <button class="type_res_button">Pizzeria</button>
+        <button class="type_res_button">Fusion</button>
+        <button class="type_res_button">Chinese</button>
+      </div>
+
+      <button
+        type="button"
+        class="btn more"
+        data-bs-toggle="modal"
+        data-bs-target="#restaurantModal"
+      >
+        <span class="more-icon"
+          ><i class="fa-solid fa-magnifying-glass"></i
+        ></span>
+        <span class="more-txt">Want more?</span>
+      </button>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="restaurantModal"
+        tabindex="-1"
+        aria-labelledby="restaurantModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header my_modal_head">
+              <h1
+                class="modal-title fs-5 text-center"
+                id="restaurantModalLabel"
+              >
+                What are you looking for?
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body my_modal_body">
+              <div v-for="type in types" class="custom-checkbox">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  :value="type.type"
+                  :id="type.type"
+                  :name="type.type"
+                  v-model="checkButtonValue"
+                  @change="apiFilterTypes()"
+                />
+                <label
+                  class="form-check-label custom-checkbox-label"
+                  :for="type.type"
+                  >{{ type.type }}</label
+                >
+              </div>
             </div>
           </div>
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-        </div>
-      </nav>
-      <hr>
-
-      <!-- CATEGORIE SELEZIONATE -->
-      <div v-if="checkButtonValue.length != 0" class="food_selected">
-        <h4>Selected Categories:</h4>
-        <div class="in_food_selected">
-          <p class="type_res_button" v-for="category in checkButtonValue">
-            {{ category }}
-          </p>
         </div>
       </div>
-      <!-- FINE -->
+    </nav>
 
-      <div class="cards_section row flex-wrap justify-content-between p-3 mb-1">
-        <div v-if="isLoading" class="loader"></div>
-
-        <template v-else-if="
-          restaurants && restaurants.data && restaurants.data.length > 0
-        ">
-          <AppCardItem v-for="restaurant in restaurants.data" :key="restaurant.id" :restaurant="restaurant">
-          </AppCardItem>
-        </template>
-        <div v-else>
-          <h3>No restaurants found</h3>
-        </div>
-      </div>
-
-      <div class="d-flex justify-content-center mb-5">
-        <div v-if="restaurants && restaurants.data && restaurants.data.length > 0">
-          <vue-awesome-paginate :total-items="total_items" v-model="apiPageNumber" :items-per-page="per_page"
-            :max-pages-shown="last_page" :on-click="changePage" :hide-prev-next-when-ends="true"
-            paginate-buttons-class="paginate-buttons" active-page-class="active-page" />
-        </div>
+    <!-- CATEGORIE SELEZIONATE -->
+    <div v-if="checkButtonValue.length != 0" class="food_selected">
+      <h4>Selected Categories:</h4>
+      <div class="in_food_selected">
+        <p class="type_res_button" v-for="category in checkButtonValue">
+          {{ category }}
+        </p>
       </div>
     </div>
-  </div>
+    <!-- FINE -->
+
+    <section id="cards_section">
+      <div v-if="isLoading" class="loader"></div>
+
+      <template
+        v-else-if="
+          restaurants && restaurants.data && restaurants.data.length > 0
+        "
+      >
+        <AppCardItem
+          v-for="restaurant in restaurants.data"
+          :key="restaurant.id"
+          :restaurant="restaurant"
+        >
+        </AppCardItem>
+      </template>
+      <div v-else>
+        <h3>No restaurants found</h3>
+      </div>
+    </section>
+
+    <div v-if="restaurants && restaurants.data && restaurants.data.length > 0">
+      <vue-awesome-paginate
+        :total-items="total_items"
+        v-model="apiPageNumber"
+        :items-per-page="per_page"
+        :max-pages-shown="last_page"
+        :on-click="changePage"
+        :hide-prev-next-when-ends="true"
+        paginate-buttons-class="paginate-buttons"
+        active-page-class="active-page"
+      />
+    </div>
+  </section>
 </template>
 
 <style lang="scss">
 @use "/src/variabiles.scss" as *;
 @use "/src/mixins.scss" as *;
 
-.nunito-main-content {
-  font-family: "Nunito", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
-.bg_container {
-  background-color: $background_color_dark;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-}
-
-.container_big {
+section {
   display: flex;
-  height: 100%;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
 
-  .cards_section {
-    display: flex !important;
-    align-items: center;
-    height: 100%;
-    min-height: 260px;
-    gap: 0.5rem;
+  background-color: $background_color_dark;
+  padding: 30px 0 40px;
 
-    @media screen and (max-width: 992px) {
-      min-height: 500px;
-    }
-
-    @media screen and (max-width: 428px) {
-      min-height: 900px;
-    }
-  }
-
-
+  margin-bottom: 1rem;
 
   nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    max-width: 1200px;
     width: 100%;
 
     h3 {
-      font-size: 1.7rem;
-      font-weight: 800;
+      font-size: 2.1rem;
       color: $text_color;
+      padding-left: 0.5rem;
+
       cursor: default;
+
+      .more {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color: $background_color;
+        background-color: $text_color;
+
+        font-weight: 600;
+        word-spacing: 2px;
+        letter-spacing: 0.5px;
+
+        border: 2px solid $text_color;
+        border-radius: 20px;
+
+        transition: all 0.2s linear;
+
+        &:hover {
+          background-color: $secondary_color;
+          border-color: $secondary_color;
+          color: $text_color;
+        }
+      }
+
+      .type_res_button {
+        padding: 6px 12px;
+        width: 8rem;
+        border-radius: 20px;
+        border: 1px solid $background_color;
+
+        background-color: $background_color;
+        color: $text_color;
+        font-weight: 600;
+
+        transition: all 0.2s linear;
+
+        &:hover {
+          background-color: $secondary_color;
+        }
+      }
+
+      .my_modal_body {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        width: 50%;
+        row-gap: 3rem;
+      }
+
+      span {
+        font-weight: normal;
+      }
     }
 
-    .food_types {
-      font-weight: 900;
-      font-size: 0.8rem;
+    #food_types {
       display: flex;
-      flex-wrap: wrap;
       gap: 1rem;
+    }
 
-      .custom-checkbox-label {
-        font-weight: 800;
+    .more {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: $background_color;
+      background-color: $text_color;
+
+      font-weight: 600;
+      word-spacing: 2px;
+      letter-spacing: 0.5px;
+
+      border: 2px solid $text_color;
+      border-radius: 20px;
+
+      padding: 6px 12px;
+      width: 12rem;
+
+      transition: all 0.2s linear;
+
+      &:hover {
+        background-color: $secondary_color;
+        border-color: $secondary_color;
+        color: $text_color;
       }
     }
 
@@ -271,11 +350,37 @@ export default {
         color: $text_color;
       }
     }
+
+    .my_modal_body {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      width: 100%;
+      row-gap: 0.5rem;
+    }
+  }
+
+  #cards_section {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+
+    gap: .5rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .more-icon {
+    display: none;
   }
 
   .pagination-container {
     display: flex;
-    column-gap: 1rem;
+    column-gap: 10px;
     margin-top: 1rem;
   }
 
@@ -285,7 +390,7 @@ export default {
     border-radius: 50%;
     cursor: pointer;
     background-color: rgb(242, 242, 242);
-    border: 1px solid $deactivated_text;
+    border: 1px solid $text_color;
     color: black;
 
     font-weight: 600;
@@ -311,39 +416,12 @@ export default {
   .next-button,
   .back-button {
     background-color: $primary_color;
-    border: 1px solid $primary_color;
     color: $text_color_highlight;
+
     font-weight: 600;
   }
 
   /* ----- Modal Classes ----- */
-  .swiper-button-next {
-    width: 25px;
-    color: $primary_color;
-    right: -7px;
-
-    &:hover {
-      color: $secondary_color;
-    }
-  }
-
-  .swiper-button-prev {
-    font-size: small;
-    color: $primary_color;
-    left: -7px;
-
-    &:hover {
-      color: $secondary_color;
-    }
-  }
-
-  .swiper-button-prev::after {
-    font-size: 1.3rem;
-  }
-
-  .swiper-button-next::after {
-    font-size: 1.3rem;
-  }
 
   .custom-checkbox input[type="checkbox"] {
     display: none;
@@ -351,19 +429,17 @@ export default {
 
   .custom-checkbox-label {
     @include restaurant_button_style;
-    text-wrap: nowrap;
+
     text-align: center;
-    border: 1px solid $deactivated_text;
   }
 
-  .custom-checkbox input[type="checkbox"]:checked+.custom-checkbox-label {
+  .custom-checkbox input[type="checkbox"]:checked + .custom-checkbox-label {
     background-color: $secondary_color;
     color: $text_color;
   }
 
   .custom-checkbox-label:hover {
     background-color: $secondary_color;
-    border: 1px solid $secondary_color;
     color: $text_color;
   }
 }
@@ -394,7 +470,6 @@ export default {
 .loader {
   @include loader;
 }
-
 @keyframes l9 {
   to {
     transform: rotate(1turn);
@@ -404,7 +479,12 @@ export default {
 /* ----- RESPONSIVE ----- */
 
 @media screen and (max-width: 1200px) {
-  section nav .food_types {
+  section nav .more {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  section nav #food_types {
     background-color: $background_color;
     border-radius: 20px;
     gap: 0;
@@ -430,7 +510,7 @@ export default {
     display: none;
   }
 
-  section nav .food_types {
+  section nav #food_types {
     background-color: $background_color_dark;
     border-radius: 20px;
 
@@ -454,6 +534,18 @@ export default {
 
   section nav .type_res_button {
     width: 10rem;
+  }
+
+  section nav .more {
+    width: 5rem;
+  }
+
+  section nav .more .more-icon {
+    display: inline !important;
+  }
+
+  section nav .more .more-txt {
+    display: none;
   }
 }
 

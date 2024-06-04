@@ -14,127 +14,98 @@ export default {
 </script>
 
 <template>
-  <router-link :to="{ name: 'restaurant', params: { id: restaurant.id } }" class="card my_card p-0 mb-4">
-    <div class="nunito-card">
-
-      <div class="img-container">
-        <img v-if="restaurant.image" :src="restaurant.image.startsWith('http')
-          ? restaurant.image
-          : 'http://localhost:8000/storage/' + restaurant.image
-          " class="card-img-top" alt="..." />
-        <img v-else class="card-img-top scale-up-center" src="/img/homepage/placeholdertemp.jpg" alt="..." />
-
-
+  <router-link
+        :to="{ name: 'restaurant', params: { id: restaurant.id } }"
+        class="card my_card gap-1">
+    <div class="img-container">
+      <img
+        v-if="restaurant.image"
+        :src="
+          restaurant.image.startsWith('http')
+            ? restaurant.image
+            : 'http://localhost:8000/storage/' + restaurant.image
+        "
+        class="card-img-top"
+        alt="..."
+      />
+      <img
+        v-else
+        class="card-img-top"
+        src="/img/homepage/placeholdertemp.jpg"
+        alt="..."
+      />
+      <div class="types-pill">
+        <span v-for="type in restaurant.types">
+           {{ type.type }}
+        </span>
       </div>
-      <div>
-        <div class="card-body px-1 py-2">
-          <h5 class="card-title text-start m-0">{{ restaurant.name }}</h5>
-        </div>
+    </div>
 
-        <div class="d-flex px-1 gap-2">
-          <span v-for="type in restaurant.types" class="types-pill types-single-pill d-flex type_bg px-2">
-            {{ type.type }}
-          </span>
-        </div>
+    <div class="card-body">
+      <h5 class="card-title text-start">{{ restaurant.name }}</h5>
 
-      </div>
-
+      <btn class="btn btn-primary my_btn">
+        <i class="fa-solid fa-person-biking"></i>
+      </btn>
     </div>
   </router-link>
 </template>
-
-
-
 
 <style lang="scss" scoped>
 @use "/src/variabiles.scss" as *;
 @use "/src/mixins.scss" as *;
 
-.nunito-card {
-  font-family: "Nunito", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
 .my_card {
-  border: none;
-  max-width: 290px;
-  min-width: fit-content;
+  border-radius: 24px;
+  border-color: transparent;
+  color: $text_color;
+
+  max-width: 305px;
   width: 100%;
 
   background-color: $background_color_dark;
-  color: $text_color;
 
   cursor: pointer;
   text-decoration: none;
-  overflow: hidden;
-
-
-  @media screen and (min-width: 768px) {
-    max-width: 325px;
-
-  }
-
-  @media screen and (max-width: 768px) {
-    max-width: 100%;
-
-  }
-
-  @media screen and (min-width: 1200px) {
-    max-width: 250px;
-
-  }
-
-  &:hover {
-
-    img {
-      -webkit-animation: scale-up-center 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-      animation: scale-up-center 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-
-      @-webkit-keyframes scale-up-center {
-        0% {
-          -webkit-transform: scale(1);
-          transform: scale(1);
-        }
-
-        100% {
-          -webkit-transform: scale(1.05);
-          transform: scale(1.07);
-        }
-      }
-
-      @keyframes scale-up-center {
-        0% {
-          -webkit-transform: scale(1);
-          transform: scale(1);
-        }
-
-        100% {
-          -webkit-transform: scale(1);
-          transform: scale(1.05);
-        }
-      }
-
-    }
-
-  }
-
-
 
   .img-container {
-    overflow: hidden;
-    border-radius: 16px;
 
+    position: relative;
 
     img {
       border-radius: 16px;
       object-fit: cover;
 
-      height: 125px;
+      height: 10rem;
 
-
-
+      box-shadow: 10px 10px 15px rgba(20, 20, 20, 0.15);
     }
+
+    .types-pill {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    span {
+      font-weight: 500;
+      background-color: $secondary_color;
+      color: $text_color;
+      border: 1px solid $text_color;
+      padding: 0.1rem 0.5em;
+      border-radius: 18px;
+      margin: 0.1rem;
+
+      opacity: 0.90;
+    }
+  }
+
+  }
+
+  .card-body {
+    padding: 0.5rem 0 0;
   }
 
   .restaurant_type {
@@ -158,34 +129,42 @@ export default {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-weight: 800;
-    font-size: 1.3rem;
+    line-height: 1.8rem;
+
+    text-shadow: 2px 2px 4px rgba(242, 202, 57, 0.3);
   }
 
-  // .my_btn {
-  //   position: absolute;
-  //   bottom: 0%;
-  //   right: 5%;
-  //   transform: translate(0%, 0%);
+  .my_btn {
+    position: absolute;
+    bottom: 0%;
+    right: 5%;
+    transform: translate(0%, 30%);
 
-  //   border-radius: 50%;
-  //   padding: .5rem .7rem;
+    border-radius: 50%;
+    padding: .6rem .7rem;
 
-  //   transition: all 0.2s linear;
-  //   background: linear-gradient(to bottom right, #f2ca39, #eeba00);
-  //   color: $background_color;
-  //   border: none;
+    transition: all 0.2s linear;
+    background: linear-gradient(to bottom right, #f2ca39, #eeba00);
+    color: $background_color;
+    border: none;
 
-  //   box-shadow: 10px 10px 15px rgba(20, 20, 20, 0.15);
-  // } 
-
+    box-shadow: 10px 10px 15px rgba(20, 20, 20, 0.15);
+  }
 }
 
-.my_card:hover .my_btn {
-  transform: translate(0%, 0%) scale(1.1);
+.my_card:hover .my_btn{
+  transform: translate(0%, 30%) scale(1.1);
 }
 
-.types-pill {
-  @include type_single_pill;
+@media screen and (max-width: 1200px) {
+  .my_btn {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .my_card {
+    max-width: 600px;
+  }
 }
 </style>
