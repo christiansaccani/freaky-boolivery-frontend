@@ -7,12 +7,25 @@ export default {
     const navbarToggle = $("#navbarToggle");
     const navbarCollapse = $("#navbarSupportedContent");
 
+
+    window.addEventListener('scroll', function() {
+      const nav = document.querySelector('nav');
+      const scrolledClass = 'scrolled';
+
+      const scrollTop = window.scrollY;
+
+      if (scrollTop === 0) {
+        nav.classList.remove(scrolledClass);
+      } else {
+        nav.classList.add(scrolledClass);
+      }
+}); 
+
     // JavaScript per gestire il toggle del menu a tendina
     navbarToggle.on("click", function (event) {
       event.stopPropagation();
       navbarCollapse.toggleClass("show");
     });
-
 
     // Chiudi il menu a tendina quando si fa clic al di fuori di esso
     $(document).on("click", function (event) {
@@ -86,6 +99,13 @@ export default {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   background-color: $background_color_dark;
 
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  transition: all 0.5s linear;
+
   .my_nav {
     max-width: 1200px;
 
@@ -111,6 +131,8 @@ export default {
       a {
         font-weight: 700;
         position: relative;
+
+        transition: all 0.5s linear;
       }
 
       .nav_voice::after {
@@ -169,6 +191,14 @@ export default {
   }
 }
 
+.scrolled {
+    background-color: $secondary_color;
+    box-shadow: none;
+
+    a {
+      color: white;
+    }
+  }
 
 
 @media screen and (max-width: 767px) {

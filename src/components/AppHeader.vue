@@ -41,6 +41,7 @@ export default {
 
 .jumbotron {
     position: relative;
+    margin-top: 112px;
 
     @media screen and (min-width: 992px) {
         background-color: $secondary_color;
@@ -53,8 +54,8 @@ export default {
 
     img {
         width: 100%;
-        height: 100%;
-        object-fit: center;
+        max-height: 25rem;
+        object-fit: cover;
 
         border-top-right-radius: 100px;
         border-bottom-right-radius: 1rem;
@@ -65,12 +66,6 @@ export default {
 
         }
 
-    }
-
-    .my_jumbo {
-        background-color: $secondary_color;
-        width: 100%;
-        height: 28rem;
     }
 
     .jumbotron-content {
@@ -141,4 +136,10 @@ export default {
     }
 
 }
+
+// .my_jumbo {
+//         background-color: $secondary_color;
+//         width: 100%;
+//         max-height: 18rem;
+//     }
 </style>

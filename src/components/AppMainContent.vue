@@ -113,12 +113,12 @@ export default {
       <h3>Popular <span>Category</span></h3>
 
       <!-- Da implementare una volta realizzati i counter -->
-      <div id="food_types">
+      <!-- <div id="food_types">
         <button class="type_res_button">Italian</button>
         <button class="type_res_button">Pizzeria</button>
         <button class="type_res_button">Fusion</button>
         <button class="type_res_button">Chinese</button>
-      </div>
+      </div> -->
 
       <button
         type="button"
@@ -129,7 +129,7 @@ export default {
         <span class="more-icon"
           ><i class="fa-solid fa-magnifying-glass"></i
         ></span>
-        <span class="more-txt">Want more?</span>
+        <span class="more-txt"> RICERCA</span>
       </button>
 
       <!-- Modal -->
@@ -254,30 +254,6 @@ section {
 
       cursor: default;
 
-      .more {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        color: $background_color;
-        background-color: $text_color;
-
-        font-weight: 600;
-        word-spacing: 2px;
-        letter-spacing: 0.5px;
-
-        border: 2px solid $text_color;
-        border-radius: 20px;
-
-        transition: all 0.2s linear;
-
-        &:hover {
-          background-color: $secondary_color;
-          border-color: $secondary_color;
-          color: $text_color;
-        }
-      }
-
       .type_res_button {
         padding: 6px 12px;
         width: 8rem;
@@ -318,17 +294,17 @@ section {
       justify-content: center;
       align-items: center;
 
+      gap: .5rem;
+
       color: $background_color;
       background-color: $text_color;
 
       font-weight: 600;
-      word-spacing: 2px;
-      letter-spacing: 0.5px;
 
       border: 2px solid $text_color;
       border-radius: 20px;
 
-      padding: 6px 12px;
+      padding: .4rem .6rem;
       width: 12rem;
 
       transition: all 0.2s linear;
@@ -370,10 +346,6 @@ section {
 
     width: 100%;
     max-width: 1200px;
-  }
-
-  .more-icon {
-    display: none;
   }
 
   .pagination-container {
@@ -511,9 +483,9 @@ section {
 }
 
 @media screen and (max-width: 992px) {
-  section nav h3 {
-    display: none;
-  }
+  // section nav h3 {
+  //   display: none;
+  // }
 
   section nav #food_types {
     background-color: $background_color_dark;
@@ -541,17 +513,17 @@ section {
     width: 10rem;
   }
 
-  section nav .more {
-    width: 5rem;
-  }
+  // section nav .more {
+  //   width: 5rem;
+  // }
 
-  section nav .more .more-icon {
-    display: inline !important;
-  }
+  // section nav .more .more-icon {
+  //   display: inline !important;
+  // }
 
-  section nav .more .more-txt {
-    display: none;
-  }
+  // section nav .more .more-txt {
+  //   display: none;
+  // }
 }
 
 @media screen and (max-width: 768px) {
