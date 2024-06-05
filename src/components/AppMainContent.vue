@@ -108,7 +108,7 @@ export default {
 </script>
 
 <template>
-  <section class="rounded-5">
+  <section>
     <nav>
       <h3>Categorie <span>Popolari</span></h3>
 
@@ -229,7 +229,7 @@ section {
   align-items: center;
 
   background-color: $background_color_dark;
-  padding: 30px 0 40px;
+  padding: 38px 0 48px;
 
   nav {
     display: flex;

@@ -11,52 +11,54 @@ export default {
 </script>
 
 <template>
-  <footer class="p-0">
+  <footer class="py-0">
     <!-- <hr class=""> -->
     <div class="container d-flex py-5">
 
       <div class="row d-flex flex-grow-1 gap-5 gap-sm-0 gap-md-0 inside-container">
 
         <div
-          class="footer_links d-flex align-items-center align-items-sm-start col-12 col-sm-6 col-md-3 flex-column py-3">
+          class="footer_links d-flex align-items-center col-4 flex-column py-3">
           <h5>Company</h5>
-          <div>
-            <span>Home</span>
-          </div>
-          <div>
-            <span>Delivery</span>
-          </div>
-          <div>
-            <span>Payment</span>
-          </div>
-          <div>
-            <span>Contact</span>
-          </div>
-          <div>
-            <span>About Us</span>
+          
+          <div class="responsive_footer">
+            <p>Home</p>
+          
+          
+            <p>Delivery</p>
+          
+          
+            <p>Payment</p>
+          
+          
+            <p>Contact</p>
+          
+          
+            <p>About Us</p>
           </div>
         </div>
 
         <div
-          class="footer_links align-items-center align-items-sm-start d-flex col-12 col-sm-6 col-md-3 flex-column py-3">
+          class="footer_links align-items-center d-flex col-4 flex-column py-3">
           <h5>Legal Terms</h5>
-          <div>
-            <span>FAQ</span>
-          </div>
-          <div>
-            <span>Help Center</span>
-          </div>
-          <div>
-            <span>PrivacyPolicy</span>
-          </div>
-          <div>
-            <span>Terms of Service</span>
+          
+          <div class="responsive_footer">
+            <p>FAQ</p>
+          
+          
+            <p>Help Center</p>
+          
+          
+            <p>PrivacyPolicy</p>
+          
+          
+            <p>Terms of Service</p>
           </div>
         </div>
 
 
         <div
-          class="footer_links social_media_contacts align-items-center align-items-sm-start d-flex col-12 col-sm-6 col-md-3 flex-column py-3">
+          class="footer_links social_media_contacts align-items-center d-flex col-4 flex-column py-3">
           <h5 class="">Our Socials</h5>
 
           <div class="d-flex gap-2">
@@ -91,42 +93,12 @@ export default {
 
         </div>
 
-        <div class="d-flex align-items-center align-items-sm-start col-12 col-sm-6 col-md-3 flex-column py-3">
-
-          <div>
-            <h5>Subscribe</h5>
-          </div>
-
-          <form class="w-100">
-            <div class="d-flex flex-column">
-              <label for="exampleInputEmail1" class="form-label"></label>
-              <input type="email" class="form-control mb-2" id="exampleInputEmail1" placeholder="enter email adress"
-                aria-describedby="emailHelp" />
-              <div id="emailHelp" class="my_text">
-                Subscribe to our newsletter
-              </div>
-            </div>
-          </form>
-
-        </div>
-
 
       </div>
 
 
 
     </div>
-
-    <div class="d-flex justify-content-center py-4 developers-pills">
-      <div class="d-flex  flex-column align-items-center">
-        <span>Website created by</span>
-      </div>
-    </div>
-
-    <div class="d-flex justify-content-center text-white p-4">
-      Boolean class 118
-    </div>
-
   </footer>
 </template>
 
@@ -137,7 +109,6 @@ export default {
 footer {
   color: $deactivated_text;
   background-color: $primary_color;
-  border-top-right-radius: 100px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
 
 
@@ -163,7 +134,7 @@ footer {
   .footer_links {
 
 
-    span {
+    p {
 
       font-size: 0.8rem;
       font-weight: 300;
@@ -214,5 +185,26 @@ footer {
 
 .my_text {
   color: $deactivated_text;
+}
+
+@media screen and (max-width: 767px) {
+
+  .inside-container {
+    flex-direction: column;
+    align-items: center;
+
+    width: 100% !important;
+  }
+
+  .responsive_footer {
+    display: flex;
+    justify-content: center;
+
+    gap: 1rem;
+
+    p {
+      white-space: nowrap;
+    }
+  }
 }
 </style>
