@@ -11,15 +11,15 @@ export default {
 </script>
 
 <template>
-  <footer class="py-0">
+  <footer>
     <!-- <hr class=""> -->
-    <div class="container d-flex py-5">
+    <div class="container d-flex py-3">
 
       <div class="row d-flex flex-grow-1 gap-5 gap-sm-0 gap-md-0 inside-container">
 
         <div
           class="footer_links d-flex align-items-center col-4 flex-column py-3">
-          <h5>Company</h5>
+          <h5 class="pb-2">Company</h5>
           
           <div class="responsive_footer">
             <p>Home</p>
@@ -40,7 +40,7 @@ export default {
 
         <div
           class="footer_links align-items-center d-flex col-4 flex-column py-3">
-          <h5>Legal Terms</h5>
+          <h5 class="pb-2">Legal Terms</h5>
           
           <div class="responsive_footer">
             <p>FAQ</p>
@@ -59,7 +59,7 @@ export default {
 
         <div
           class="footer_links social_media_contacts align-items-center d-flex col-4 flex-column py-3">
-          <h5 class="">Our Socials</h5>
+          <h5 class="pb-2">Our Socials</h5>
 
           <div class="d-flex gap-2">
             <span>
@@ -161,26 +161,6 @@ footer {
       }
     }
   }
-
-  .developers-pills {
-    background-color: $secondary_color;
-    font-size: 0.8rem;
-    font-weight: 300;
-    color: $primary_color;
-
-    span {
-
-      a {
-        // text-decoration: none;
-        // @include footer_button_style_pills;
-        // cursor: default;
-
-        &:hover {
-          background-color: $secondary_color;
-        }
-      }
-    }
-  }
 }
 
 .my_text {
@@ -188,6 +168,19 @@ footer {
 }
 
 @media screen and (max-width: 767px) {
+
+  h5 {
+    font-size: 1.1rem !important;
+  }
+
+  footer {
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+  }
+
+  .container {
+    padding: 1.5rem !important;
+  }
 
   .inside-container {
     flex-direction: column;
@@ -206,6 +199,10 @@ footer {
     p {
       white-space: nowrap;
     }
+  }
+
+  .footer_links {
+    padding: 0 !important;
   }
 }
 </style>
