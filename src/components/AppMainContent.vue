@@ -110,15 +110,7 @@ export default {
 <template>
   <section class="rounded-5">
     <nav>
-      <h3>Popular <span>Category</span></h3>
-
-      <!-- Da implementare una volta realizzati i counter -->
-      <!-- <div id="food_types">
-        <button class="type_res_button">Italian</button>
-        <button class="type_res_button">Pizzeria</button>
-        <button class="type_res_button">Fusion</button>
-        <button class="type_res_button">Chinese</button>
-      </div> -->
+      <h3>Categorie <span>Popolari</span></h3>
 
       <button
         type="button"
@@ -301,17 +293,17 @@ section {
 
       font-weight: 600;
 
-      border: 2px solid $text_color;
+      border: none;
       border-radius: 20px;
 
-      padding: .4rem .6rem;
+      padding: .5rem .6rem;
       width: 12rem;
 
       transition: all 0.2s linear;
 
       &:hover {
         background-color: $secondary_color;
-        border-color: $secondary_color;
+        // border-color: $secondary_color;
         color: $text_color;
       }
     }

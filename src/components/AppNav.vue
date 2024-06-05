@@ -104,7 +104,7 @@ export default {
   left: 0;
   z-index: 2;
 
-  transition: all 0.5s linear;
+  transition: all 0.3s linear;
 
   .my_nav {
     max-width: 1200px;
@@ -135,6 +135,10 @@ export default {
         transition: all 0.5s linear;
       }
 
+      .nav_voice {
+        color: $text_color;
+      }
+
       .nav_voice::after {
         content: "";
         position: absolute;
@@ -148,11 +152,11 @@ export default {
         transition: width 0.4s ease;
         -webkit-transition: width 0.4s ease;
         transform: translateX(-50%);
+        transition: all 0.3s linear;
       }
 
       .nav_voice:hover::after {
         width: 75%;
-        background: $secondary_color;
       }
 
 
@@ -160,12 +164,14 @@ export default {
         @include primary_button_style;
 
         font-weight: 600;
-        border: 1px solid $secondary_color;
+        border: none;
 
         margin-left: auto;
         margin-right: auto;
 
         font-size: 1.05rem;
+
+        transition: all 0.3s linear;
 
         &:hover {
           background-color: $primary_color;
@@ -197,6 +203,14 @@ export default {
 
     a {
       color: white;
+    }
+
+    .nav_voice::after {
+      background-color: white !important;
+    }
+
+    .my_button {
+      background-color: white !important;
     }
   }
 

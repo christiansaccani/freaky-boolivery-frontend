@@ -9,14 +9,13 @@ export default {
 <template>
     <div class="nunito-header">
 
-        <div class="jumbotron gap-5 gap-lg-0 row d-flex align-items-center my_jumbo">
+        <div class="jumbotron gap-lg-0 row d-flex align-items-center">
 
             <div class="col-lg-6 col-12 h-100 d-flex justify-content-center">
                 <div class="d-flex justify-content-center jumbotron-content">
                     <h1 class="text-uppercase">Boolivery</h1>
-                    <h2 class="text-capitalize">Consegne da Paura!</h2>
-                    <!-- <p class="text-capitalize">This Delicious Hamburger.</p>
-                    <button class="flip-horizontal-bottom">!</button> -->
+                    <h2 class="text-capitalize">Consegne da Paura...</h2>
+                    <h3 class="text-capitalize">... ad emissioni Zero!</h3>
                 </div>
             </div>
 
@@ -41,10 +40,15 @@ export default {
 
 .jumbotron {
     position: relative;
+    background-color: $secondary_color;
     margin-top: 112px;
+    padding-top: 1rem;
+
+    gap: 1rem;
 
     @media screen and (min-width: 992px) {
-        background-color: $secondary_color;
+        margin-top: 112px;
+        padding-top: 0;
         border-top-left-radius: 1rem;
         border-top-right-radius: 100px;
         border-bottom-right-radius: 1rem;
@@ -57,13 +61,11 @@ export default {
         max-height: 25rem;
         object-fit: cover;
 
-        border-top-right-radius: 100px;
-        border-bottom-right-radius: 1rem;
+        transform-origin: top;
 
         @media (max-width: 992px) {
             border-radius: 1rem;
-            border-radius: 1rem;
-
+            max-height: 16rem;
         }
 
     }
@@ -104,7 +106,7 @@ export default {
 
             color: $text_color;
 
-            @media (max-width: 320px) {
+            @media (max-width: 375px) {
                 font-size: 3rem;
             }
         }
@@ -113,12 +115,15 @@ export default {
             font-size: 2.5rem;
             font-weight: 700;
             color: $text_color;
+
+            @media (max-width: 394px) {
+                font-size: 2rem;
+            }
         }
 
-        p {
-            font-size: 1rem;
-            font-weight: 400;
+        h3 {
             color: $text_color;
+            font-weight: 700;
         }
 
         button {
