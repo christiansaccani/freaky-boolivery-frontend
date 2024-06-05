@@ -194,6 +194,7 @@ footer {
     align-items: center;
 
     width: 100% !important;
+    gap: 0 !important;
   }
 
   .responsive_footer {
