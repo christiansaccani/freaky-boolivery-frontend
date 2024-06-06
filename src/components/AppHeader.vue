@@ -1,10 +1,25 @@
 <script>
-
 export default {
     name: "AppHeader",
-};
+    mounted() {
+        const updateImageSource = () => {
+            const imgHamb = document.querySelector('.img_hamb');
+            if (window.innerWidth < 992) {
+                imgHamb.src = "/img/homepage/hamburger-responsive.png"; // Percorso alla nuova immagine
+            } else {
+                imgHamb.src = "/img/homepage/boolivery_hamburger_2.jpg";
+            }
+        };
 
+        // Aggiorna l'immagine al caricamento della pagina
+        updateImageSource();
+
+        // Aggiorna l'immagine al ridimensionamento della finestra
+        window.addEventListener('resize', updateImageSource);
+    }
+};
 </script>
+
 
 <template>
     <div class="nunito-header">
@@ -15,7 +30,7 @@ export default {
                 <div class="d-flex justify-content-center align-items-center jumbotron-content">
                     <img class="scream_img" src="/img/homepage/scream.png" alt="">
                     <h1 class="text-uppercase">Boolivery</h1>
-                    <h2 class="text-capitalize">Consegne da Paura!</h2>
+                    <h2>Consegne da Paura!</h2>
                 </div>
             </div>
 
@@ -54,10 +69,9 @@ export default {
         margin-top: 112px;
         padding-top: 0;
         padding-bottom: 0;
-        border-top-left-radius: 1rem;
-        border-top-right-radius: 100px;
-        border-bottom-right-radius: 1rem;
-        border-bottom-left-radius: 1rem;
+        // border-top-left-radius: 1rem;
+        // border-bottom-right-radius: 1rem;
+        // border-bottom-left-radius: 1rem;
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     }
 
@@ -72,15 +86,21 @@ export default {
     transform-origin: top;
 
         @media (max-width: 992px) {
-            bottom: 0;
+            bottom: 2rem;
             left: 50%;
             transform: translate(-50%, 50%);
             position: absolute;
             width: 9rem;
             height: 9rem;
-            border-radius: 50%;
 
-            border: 3px solid $secondary_color;
+            opacity: 0.32;
+        }
+
+        @media (max-width: 425px) {
+            width: 7.5rem;
+            height: 7.5rem;
+
+            bottom: 1rem;
         }
     }   
 
@@ -122,10 +142,21 @@ export default {
             left: 1rem;
             top: -1rem;
 
-            // transform: scale(0.95);
-
             opacity: 0.15;
             object-fit: cover;
+
+            @media (max-width: 992px) {
+            
+                transform: translateX(-50%) scale(0.7);
+                top: -6.5rem;
+                left: 50%;
+            }
+
+            @media (max-width: 425px) {
+                transform: translateX(-50%) scale(0.55);
+                top: -9rem;
+                left: 50%;
+            }
         }
 
         h1 {
@@ -137,7 +168,7 @@ export default {
 
             z-index: 2;
 
-            @media (max-width: 375px) {
+            @media (max-width: 425px) {
                 font-size: 3rem;
             }
         }
@@ -149,7 +180,7 @@ export default {
 
             z-index: 2;
 
-            @media (max-width: 394px) {
+            @media (max-width: 425px) {
                 font-size: 2rem;
             }
         }

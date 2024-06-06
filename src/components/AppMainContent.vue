@@ -240,6 +240,8 @@ section {
     width: 100%;
 
     h3 {
+      border: 1px solid $primary_color;
+
       font-size: 2.1rem;
       color: $text_color;
       padding-left: 0.5rem;
@@ -476,7 +478,7 @@ section {
 
 @media screen and (max-width: 992px) {
   section {
-    padding-top: 3.8rem;
+    padding-top: 2rem;
   }
 
   section nav #food_types {
