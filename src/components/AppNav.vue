@@ -63,15 +63,14 @@ export default {
             <router-link class="text-decoration-none" to="/">
               <a class="nav-link text-center nav_voice" aria-current="page">Home</a>
             </router-link>
-            <a class="nav-link text-center nav_voice" href="#">Delivery</a>
             <a class="nav-link text-center nav_voice" href="#">Pagamenti</a>
             <a class="nav-link text-center nav_voice" href="#">Contatti</a>
-            <a class="nav-link text-center nav_voice" href="#">About Us</a>
+            <a class="nav-link text-center nav_voice" href="#">Su di noi</a>
             <span id="space"></span>
             <!-- Login Button -->
             <a class="text-center" href="http://127.0.0.1:8000">
               <button class="btn btn-sm ms-auto my_button" type="button">
-                <span class=" text-capitalize"><i class="fa-solid fa-bell-concierge"></i> Login Ristoratori</span>
+                <span class=" text-capitalize"><i class="fa-solid fa-bell-concierge"></i> Ristoranti</span>
               </button>
             </a>
           </div>

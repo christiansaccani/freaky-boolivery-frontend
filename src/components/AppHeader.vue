@@ -12,15 +12,15 @@ export default {
         <div class="jumbotron gap-lg-0 row d-flex align-items-center">
 
             <div class="col-lg-6 col-12 h-100 d-flex justify-content-center">
-                <div class="d-flex justify-content-center jumbotron-content">
+                <div class="d-flex justify-content-center align-items-center jumbotron-content">
+                    <img class="scream_img" src="/img/homepage/scream.png" alt="">
                     <h1 class="text-uppercase">Boolivery</h1>
-                    <h2 class="text-capitalize">Consegne da Paura...</h2>
-                    <h3 class="text-capitalize">... ad emissioni Zero!</h3>
+                    <h2 class="text-capitalize">Consegne da Paura!</h2>
                 </div>
             </div>
 
             <div class="col-lg-6 col-12 justify-content-center p-0 m-0">
-                <img src="/img/homepage/boolivery_hamburger_2.jpg" alt="">
+                <img class="img_hamb" src="/img/homepage/boolivery_hamburger_2.jpg" alt="">
             </div>
 
         </div>
@@ -48,6 +48,8 @@ export default {
 
     gap: 1rem;
 
+    overflow: hidden;
+
     @media screen and (min-width: 992px) {
         margin-top: 112px;
         padding-top: 0;
@@ -59,10 +61,13 @@ export default {
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     }
 
-    img {
+    .img_hamb {
     width: 100%;
     max-height: 25rem;
     object-fit: cover;
+
+    border-top-left-radius: 197px;
+    border-bottom-left-radius: 197px;
 
     transform-origin: top;
 
@@ -76,12 +81,6 @@ export default {
             border-radius: 50%;
 
             border: 3px solid $secondary_color;
-
-            transition: all 1s linear;
-
-            &:hover {
-                transform: translate(-50%, 50%) rotateY(360deg);
-            }
         }
     }   
 
@@ -117,11 +116,26 @@ export default {
             }
         }
 
+        .scream_img {
+            position: absolute;
+
+            left: 1rem;
+            top: -1rem;
+
+            // transform: scale(0.95);
+
+            opacity: 0.15;
+            object-fit: cover;
+        }
+
         h1 {
-            font-size: 4rem;
+            font-size: 6rem;
+            letter-spacing: 4px;
             font-weight: 800;
 
             color: $text_color;
+
+            z-index: 2;
 
             @media (max-width: 375px) {
                 font-size: 3rem;
@@ -133,14 +147,11 @@ export default {
             font-weight: 700;
             color: $text_color;
 
+            z-index: 2;
+
             @media (max-width: 394px) {
                 font-size: 2rem;
             }
-        }
-
-        h3 {
-            color: $text_color;
-            font-weight: 700;
         }
 
         button {
@@ -148,7 +159,7 @@ export default {
 
             &:hover {
                 background-color: $primary_color;
-                color: #ffffff;
+                color: $background_color;
                 transition: 0.3s ease;
                 scale: 1.05;
             }
