@@ -42,13 +42,16 @@ export default {
     position: relative;
     background-color: $secondary_color;
     margin-top: 112px;
-    padding-top: 1rem;
+    padding-top: 1.5rem;
+
+    padding-bottom: 3.5rem;
 
     gap: 1rem;
 
     @media screen and (min-width: 992px) {
         margin-top: 112px;
         padding-top: 0;
+        padding-bottom: 0;
         border-top-left-radius: 1rem;
         border-top-right-radius: 100px;
         border-bottom-right-radius: 1rem;
@@ -57,18 +60,32 @@ export default {
     }
 
     img {
-        width: 100%;
-        max-height: 25rem;
-        object-fit: cover;
+    width: 100%;
+    max-height: 25rem;
+    object-fit: cover;
 
-        transform-origin: top;
+    transform-origin: top;
 
         @media (max-width: 992px) {
-            border-radius: 1rem;
-            max-height: 16rem;
-        }
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            position: absolute;
+            width: 9rem;
+            height: 9rem;
+            border-radius: 50%;
 
-    }
+            border: 3px solid $secondary_color;
+
+            transition: all 1s linear;
+
+            &:hover {
+                transform: translate(-50%, 50%) rotateY(360deg);
+            }
+        }
+    }   
+
+    
 
     .jumbotron-content {
 
@@ -78,7 +95,7 @@ export default {
         text-align: start;
         color: $background_color;
 
-        @media (max-width: 992pxpx) {
+        @media (max-width: 992px) {
             text-align: center;
         }
 
@@ -141,10 +158,4 @@ export default {
     }
 
 }
-
-// .my_jumbo {
-//         background-color: $secondary_color;
-//         width: 100%;
-//         max-height: 18rem;
-//     }
 </style>

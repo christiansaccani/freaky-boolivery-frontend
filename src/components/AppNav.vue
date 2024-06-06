@@ -176,7 +176,6 @@ export default {
         &:hover {
           background-color: $primary_color;
           color: $background_color;
-          border: 1px solid $primary_color;
         }
 
         span {
@@ -202,15 +201,20 @@ export default {
     box-shadow: none;
 
     a {
-      color: white;
+      color: $background_color;
     }
 
     .nav_voice::after {
-      background-color: white !important;
+      background-color: $background_color !important;
     }
 
     .my_button {
-      background-color: white !important;
+      background-color: $background_color !important;
+
+      &:hover {
+          background-color: $primary_color !important;
+          color: $background_color !important;
+        }
     }
   }
 

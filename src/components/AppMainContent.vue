@@ -475,9 +475,9 @@ section {
 }
 
 @media screen and (max-width: 992px) {
-  // section nav h3 {
-  //   display: none;
-  // }
+  section {
+    padding-top: 3.8rem;
+  }
 
   section nav #food_types {
     background-color: $background_color_dark;
@@ -504,18 +504,6 @@ section {
   section nav .type_res_button {
     width: 10rem;
   }
-
-  // section nav .more {
-  //   width: 5rem;
-  // }
-
-  // section nav .more .more-icon {
-  //   display: inline !important;
-  // }
-
-  // section nav .more .more-txt {
-  //   display: none;
-  // }
 }
 
 @media screen and (max-width: 768px) {
