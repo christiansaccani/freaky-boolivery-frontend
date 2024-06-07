@@ -51,6 +51,8 @@ export default {
     font-family: "Nunito", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+
+    overflow-x: hidden;
 }
 
 .jumbotron {

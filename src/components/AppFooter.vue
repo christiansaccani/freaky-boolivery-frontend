@@ -19,47 +19,44 @@ export default {
 
         <div
           class="footer_links d-flex align-items-center col-4 flex-column py-3">
-          <h5 class="pb-2">Company</h5>
+          <h5 class="pb-2">Termini Legali</h5>
           
           <div class="responsive_footer">
-            <p>Home</p>
+            <p class="ps-1">FAQ</p>
           
           
-            <p>Delivery</p>
+            <p class="ps-1">Centro Assistenza</p>
           
           
-            <p>Payment</p>
+            <p class="ps-1">Informativa sulla Privacy</p>
           
           
-            <p>Contact</p>
-          
-          
-            <p>About Us</p>
+            <p class="ps-1">Termini di Servizio</p>
           </div>
         </div>
 
         <div
           class="footer_links align-items-center d-flex col-4 flex-column py-3">
-          <h5 class="pb-2">Legal Terms</h5>
+          <h5 class="pb-2">Metodi di Pagamento</h5>
           
           <div class="responsive_footer">
-            <p>FAQ</p>
+            <p>Mastercard</p>
           
           
-            <p>Help Center</p>
+            <p>Visa</p>
           
           
-            <p>PrivacyPolicy</p>
+            <p>PayPal</p>
           
           
-            <p>Terms of Service</p>
+            <p>Revolut</p>
           </div>
         </div>
 
 
         <div
           class="footer_links social_media_contacts align-items-center d-flex col-4 flex-column py-3">
-          <h5 class="pb-2">Our Socials</h5>
+          <h5 class="pb-2">Seguici</h5>
 
           <div class="d-flex gap-2">
             <span>
@@ -141,6 +138,7 @@ footer {
       color: $deactivated_text;
       cursor: pointer;
 
+
       &:hover {
         color: $secondary_color;
       }
@@ -191,6 +189,7 @@ footer {
   }
 
   .responsive_footer {
+
     display: flex;
     justify-content: center;
 
