@@ -37,19 +37,19 @@ export default {
 
         <div
           class="footer_links align-items-center d-flex col-4 flex-column py-3">
-          <h5 class="pb-2">Metodi di Pagamento</h5>
+          <h5 class="pb-2">Feedback</h5>
           
           <div class="responsive_footer">
-            <p>Mastercard</p>
+            <p>Aiutaci a migliorare</p>
           
           
-            <p>Visa</p>
+            <p>Missione e visione</p>
           
           
-            <p>PayPal</p>
+            <p>Team</p>
           
           
-            <p>Revolut</p>
+            <p>Recensioni</p>
           </div>
         </div>
 
