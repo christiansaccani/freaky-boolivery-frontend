@@ -52,7 +52,7 @@ export default {
 .jumbotron {
     position: relative;
     background-color: $secondary_color;
-    margin-top: 112px;
+    margin-top: 5rem;
     padding-top: 1.5rem;
     padding-bottom: 3.5rem;
 
@@ -60,7 +60,6 @@ export default {
     overflow: hidden;
 
     @media screen and (min-width: 993px) {
-        margin-top: 112px;
         padding-top: 0;
         padding-bottom: 0;
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
@@ -154,6 +153,10 @@ export default {
             @media (max-width: 1215px) {
                 padding-left: 1rem;
                 font-size: 5rem;
+            }
+
+            @media (max-width: 540px) {
+                font-size: 4rem;
             }
 
             @media (max-width: 425px) {

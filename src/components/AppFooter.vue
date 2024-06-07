@@ -12,7 +12,7 @@ export default {
 
 <template>
   <footer>
-    <div class="container d-flex py-3">
+    <div class="container d-flex pt-1 pb-0">
       <div class="row d-flex flex-grow-1 gap-5 gap-sm-0 gap-md-0 inside-container">
         <div class="footer_links d-flex align-items-center col-4 flex-column py-3">
           <h5 class="pb-2">Termini Legali</h5>

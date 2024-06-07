@@ -48,7 +48,7 @@ export default {
       <!-- Home Icon -->
       <router-link to="/">
         <a class="navbar-brand">
-          <img src="\img\logo\pngegg.png" alt="" />
+          <img src="\img\logo\anotherlogo.png" alt="" />
         </a>
       </router-link>
       <!-- Toggle button for mobile view -->
@@ -90,6 +90,8 @@ export default {
   font-family: "Nunito", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+
+  z-index: 10;
 }
 
 .navbar {
@@ -122,7 +124,11 @@ export default {
     }
 
     img {
-      max-height: 5rem;
+      max-height: 4rem;
+
+      @media screen and (min-width: 993px) {
+        max-height: 5rem;
+      }
     }
 
     .right-side {

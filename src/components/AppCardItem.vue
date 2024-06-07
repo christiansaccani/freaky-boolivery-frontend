@@ -78,7 +78,7 @@ export default {
 
       height: 10rem;
 
-      box-shadow: 10px 10px 15px rgba(20, 20, 20, 0.15);
+      box-shadow: 3px 3px 3px rgba(20, 20, 20, 0.15);
     }
 
     .types-pill {
@@ -148,7 +148,7 @@ export default {
     color: $background_color;
     border: none;
 
-    box-shadow: 10px 10px 15px rgba(20, 20, 20, 0.15);
+    box-shadow: 5px 5px 5px rgba(20, 20, 20, 0.15);
   }
 }
 
