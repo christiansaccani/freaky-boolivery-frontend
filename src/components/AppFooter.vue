@@ -22,16 +22,16 @@ export default {
           <h5 class="pb-2">Termini Legali</h5>
           
           <div class="responsive_footer">
-            <p class="ps-1">FAQ</p>
+            <p class="ps-2">FAQ</p>
           
           
-            <p class="ps-1">Centro Assistenza</p>
+            <p class="ps-2">Centro Assistenza</p>
           
           
-            <p class="ps-1">Informativa sulla Privacy</p>
+            <p class="ps-2">Informativa sulla Privacy</p>
           
           
-            <p class="ps-1">Termini di Servizio</p>
+            <p class="ps-2">Termini di Servizio</p>
           </div>
         </div>
 
