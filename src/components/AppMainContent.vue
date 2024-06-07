@@ -139,7 +139,7 @@ export default {
                 class="modal-title fs-5 text-center"
                 id="restaurantModalLabel"
               >
-                What are you looking for?
+                Cosa stai cercando?
               </h1>
               <button
                 type="button"
@@ -174,7 +174,7 @@ export default {
 
     <!-- CATEGORIE SELEZIONATE -->
     <div v-if="checkButtonValue.length != 0" class="food_selected">
-      <h4>Selected Categories:</h4>
+      <h4>Categorie Selezionate:</h4>
       <div class="in_food_selected">
         <p class="type_res_button" v-for="category in checkButtonValue">
           {{ category }}
@@ -245,14 +245,6 @@ section {
       color: $text_color;
       padding-left: 0.5rem;
       cursor: default;
-
-      @media screen and (min-width: 500px) {
-        border: 1px solid $primary_color;
-        padding: 0.5rem 1rem;
-        border-radius: 32px;
-
-        line-height: 3.1rem;
-      }
 
       .type_res_button {
         padding: 6px 12px;
@@ -437,13 +429,38 @@ section {
   }
 }
 
+/* HTML: <div class="loader"></div> */
 .loader {
-  @include loader;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 8px solid #d1914b;
+  box-sizing: border-box;
+  --c:no-repeat radial-gradient(farthest-side, #d64123 94%,#0000);
+  --b:no-repeat radial-gradient(farthest-side, #000 94%,#0000);
+  background:
+    var(--c) 11px 15px,
+    var(--b) 6px 15px,    
+    var(--c) 35px 23px,
+    var(--b) 29px 15px,    
+    var(--c) 11px 46px,
+    var(--b) 11px 34px,    
+    var(--c) 36px 0px,
+    var(--b) 50px 31px,
+    var(--c) 47px 43px,
+    var(--b) 31px 48px,    
+    #f6d353; 
+  background-size: 15px 15px,6px 6px;
+  animation: l4 2s infinite;
 }
-@keyframes l9 {
-  to {
-    transform: rotate(1turn);
-  }
+@keyframes l4 {
+  0%     {-webkit-mask:conic-gradient(#0000 0     ,#000 0)}
+  16.67% {-webkit-mask:conic-gradient(#0000 60deg ,#000 0)}
+  33.33% {-webkit-mask:conic-gradient(#0000 120deg,#000 0)}
+  50%    {-webkit-mask:conic-gradient(#0000 180deg,#000 0)}
+  66.67% {-webkit-mask:conic-gradient(#0000 240deg,#000 0)}
+  83.33% {-webkit-mask:conic-gradient(#0000 300deg,#000 0)}
+  100%   {-webkit-mask:conic-gradient(#0000 360deg,#000 0)}
 }
 
 /* ----- RESPONSIVE ----- */

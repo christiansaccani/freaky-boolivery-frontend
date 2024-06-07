@@ -11,10 +11,8 @@ export default {
             }
         };
 
-        // Aggiorna l'immagine al caricamento della pagina
+        // Aggiorna l'immagine al caricamento della pagina e al ridimensionamento della finestra
         updateImageSource();
-
-        // Aggiorna l'immagine al ridimensionamento della finestra
         window.addEventListener('resize', updateImageSource);
     }
 };
@@ -23,9 +21,7 @@ export default {
 
 <template>
     <div class="nunito-header">
-
         <div class="jumbotron gap-lg-0 row d-flex align-items-center">
-
             <div class="col-lg-6 col-12 h-100 d-flex justify-content-center">
                 <div class="d-flex justify-content-center align-items-center jumbotron-content">
                     <img class="scream_img" src="/img/homepage/scream.png" alt="">
@@ -37,9 +33,7 @@ export default {
             <div class="col-lg-6 col-12 justify-content-center p-0 m-0">
                 <img class="img_hamb" src="" alt="">
             </div>
-
         </div>
-
     </div>
 </template>
 
@@ -60,20 +54,15 @@ export default {
     background-color: $secondary_color;
     margin-top: 112px;
     padding-top: 1.5rem;
-
     padding-bottom: 3.5rem;
 
     gap: 1rem;
-
     overflow: hidden;
 
     @media screen and (min-width: 993px) {
         margin-top: 112px;
         padding-top: 0;
         padding-bottom: 0;
-        // border-top-left-radius: 1rem;
-        // border-bottom-right-radius: 1rem;
-        // border-bottom-left-radius: 1rem;
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     }
 
@@ -85,8 +74,6 @@ export default {
     border-top-left-radius: 197px;
     border-bottom-left-radius: 197px;
 
-    transform-origin: top;
-
         @media (max-width: 992px) {
             bottom: 2rem;
             left: 50%;
@@ -94,14 +81,12 @@ export default {
             position: absolute;
             width: 9rem;
             height: 9rem;
-
             opacity: 0.32;
         }
 
         @media (max-width: 425px) {
             width: 7.5rem;
             height: 7.5rem;
-
             bottom: 1rem;
         }
     }   
@@ -128,11 +113,9 @@ export default {
                 letter-spacing: -0.5em;
                 opacity: 0;
             }
-
             40% {
                 opacity: 0.6;
             }
-
             100% {
                 opacity: 1;
             }
@@ -140,7 +123,6 @@ export default {
 
         .scream_img {
             position: absolute;
-
             left: 1rem;
             top: -1rem;
 
@@ -167,7 +149,6 @@ export default {
             font-weight: 800;
 
             color: $text_color;
-
             z-index: 2;
 
             @media (max-width: 1215px) {
@@ -201,10 +182,7 @@ export default {
                 transition: 0.3s ease;
                 scale: 1.05;
             }
-
         }
-
     }
-
 }
 </style>

@@ -95,7 +95,7 @@ export default {
 .navbar {
   width: 100%;
   padding: 1rem 0;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px 5px $secondary_color;
   background-color: $background_color_dark;
 
   position: fixed;
@@ -113,11 +113,11 @@ export default {
     }
 
     .navbar-toggler {
-      border: 1px solid $deactivated_text;
+      border: 2px solid $primary_color;
       border-radius: 10px;
 
       .navbar-toggler-icon {
-        color: $deactivated_text;
+        color: $primary_color;
       }
     }
 
@@ -197,7 +197,6 @@ export default {
 
 .scrolled {
     background-color: $secondary_color;
-    box-shadow: none;
 
     a {
       color: $background_color;
