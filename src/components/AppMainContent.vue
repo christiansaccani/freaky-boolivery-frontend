@@ -240,13 +240,17 @@ section {
     width: 100%;
 
     h3 {
-      border: 1px solid $primary_color;
 
       font-size: 2.1rem;
       color: $text_color;
       padding-left: 0.5rem;
-
       cursor: default;
+
+      @media screen and (min-width: 500px) {
+        border: 1px solid $primary_color;
+        padding: 0.5rem;
+        border-radius: 24px;
+      }
 
       .type_res_button {
         padding: 6px 12px;

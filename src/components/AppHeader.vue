@@ -4,7 +4,7 @@ export default {
     mounted() {
         const updateImageSource = () => {
             const imgHamb = document.querySelector('.img_hamb');
-            if (window.innerWidth < 992) {
+            if (window.innerWidth < 1005) {
                 imgHamb.src = "/img/homepage/hamburger-responsive.png"; // Percorso alla nuova immagine
             } else {
                 imgHamb.src = "/img/homepage/boolivery_hamburger_2.jpg";
@@ -35,7 +35,7 @@ export default {
             </div>
 
             <div class="col-lg-6 col-12 justify-content-center p-0 m-0">
-                <img class="img_hamb" src="/img/homepage/boolivery_hamburger_2.jpg" alt="">
+                <img class="img_hamb" src="" alt="">
             </div>
 
         </div>
@@ -65,7 +65,7 @@ export default {
 
     overflow: hidden;
 
-    @media screen and (min-width: 992px) {
+    @media screen and (min-width: 993px) {
         margin-top: 112px;
         padding-top: 0;
         padding-bottom: 0;
@@ -114,7 +114,7 @@ export default {
         text-align: start;
         color: $background_color;
 
-        @media (max-width: 992px) {
+        @media (max-width: 993px) {
             text-align: center;
         }
 
@@ -167,6 +167,11 @@ export default {
             color: $text_color;
 
             z-index: 2;
+
+            @media (max-width: 1215px) {
+                padding-left: 1rem;
+                font-size: 5rem;
+            }
 
             @media (max-width: 425px) {
                 font-size: 3rem;
