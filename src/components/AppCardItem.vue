@@ -85,9 +85,15 @@ export default {
     position: absolute;
     left: 10px;
     bottom: 10px;
+    right: auto;
 
     display: flex;
     flex-wrap: wrap;
+
+    @media screen and (max-width: 425px) {
+      left: auto;
+      right: 10px;
+    }
 
     span {
       font-weight: 500;
@@ -130,8 +136,21 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 1.8rem;
+    padding-left: .2rem;
 
+    color: $text_color;
     text-shadow: 2px 2px 4px rgba(242, 202, 57, 0.3);
+
+    @media screen and (max-width: 425px) {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+
+      color: $background_color;
+      background-color: $text_color;
+      padding: 0.1rem 0.6rem;
+      border-radius: 12px;
+    }
   }
 
   .my_btn {
@@ -149,6 +168,10 @@ export default {
     border: none;
 
     box-shadow: 5px 5px 5px rgba(20, 20, 20, 0.15);
+
+    @media screen and (max-width: 425px) {
+      display: none;
+    }
   }
 }
 

@@ -110,7 +110,7 @@ export default {
 <template>
   <section>
     <nav>
-      <h3>Categorie <span>Popolari</span></h3>
+      <h3>Consigliati</h3>
 
       <button
         type="button"
@@ -121,7 +121,7 @@ export default {
         <span class="more-icon"
           ><i class="fa-solid fa-magnifying-glass"></i
         ></span>
-        <span class="more-txt"> RICERCA</span>
+        <span class="more-txt"> CATEGORIA</span>
       </button>
 
       <!-- Modal -->
@@ -139,7 +139,7 @@ export default {
                 class="modal-title fs-5 text-center"
                 id="restaurantModalLabel"
               >
-                Cosa stai cercando?
+                Seleziona una o più categorie:
               </h1>
               <button
                 type="button"
@@ -199,7 +199,7 @@ export default {
         </AppCardItem>
       </template>
       <div v-else>
-        <h3>No restaurants found</h3>
+        <h3>Nessun Ristorante trovato</h3>
       </div>
     </section>
 
@@ -229,7 +229,11 @@ section {
   align-items: center;
 
   background-color: $background_color_dark;
-  padding: 38px 0 48px;
+  padding: 40px 0 35px;
+
+  @media screen and (max-width: 425px) {
+    padding: 30px 0 25px;
+  }
 
   nav {
     display: flex;
@@ -241,9 +245,9 @@ section {
 
     h3 {
 
-      font-size: 2.1rem;
+      font-size: 2.4rem;
+      font-weight: 700;
       color: $text_color;
-      padding-left: 0.5rem;
       cursor: default;
 
       .type_res_button {
@@ -253,7 +257,7 @@ section {
         border: 1px solid $background_color;
 
         background-color: $background_color;
-        color: $text_color;
+        color: $primary_color;
         font-weight: 600;
 
         transition: all 0.2s linear;
@@ -301,10 +305,19 @@ section {
 
       transition: all 0.2s linear;
 
+        @media screen and (max-width: 1200px) {
+          width: 6rem;
+        }
+
       &:hover {
         background-color: $secondary_color;
-        // border-color: $secondary_color;
         color: $text_color;
+      }
+
+      .more-txt {
+        @media screen and (max-width: 1200px) {
+          display: none;
+        }
       }
     }
 
@@ -338,6 +351,10 @@ section {
 
     width: 100%;
     max-width: 1200px;
+
+    @media screen and (max-width: 425px) {
+      gap: .4rem !important;
+    }
   }
 
   .pagination-container {
@@ -466,6 +483,10 @@ section {
 /* ----- RESPONSIVE ----- */
 
 @media screen and (max-width: 1200px) {
+  h3 {
+    padding-left: .5rem;
+  }
+
   section nav .more {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;

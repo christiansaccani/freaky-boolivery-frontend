@@ -12,7 +12,7 @@ export default {
 
 <template>
   <footer>
-    <div class="container d-flex pt-1 pb-0">
+    <div class="container d-flex pb-0">
       <div class="row d-flex flex-grow-1 gap-5 gap-sm-0 gap-md-0 inside-container">
         <div class="footer_links d-flex align-items-center col-4 flex-column py-3">
           <h5 class="pb-2">Termini Legali</h5>
@@ -81,6 +81,10 @@ footer {
   color: $deactivated_text;
   background-color: $primary_color;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+
+  .container{
+    padding-top: 3rem;
+  }
 
   h5 {
     font-size: 1.2rem;
