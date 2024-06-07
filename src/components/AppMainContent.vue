@@ -248,8 +248,10 @@ section {
 
       @media screen and (min-width: 500px) {
         border: 1px solid $primary_color;
-        padding: 0.5rem;
-        border-radius: 24px;
+        padding: 0.5rem 1rem;
+        border-radius: 32px;
+
+        line-height: 3.1rem;
       }
 
       .type_res_button {

@@ -115,7 +115,7 @@ export default {
         color: $background_color;
 
         @media (max-width: 993px) {
-            text-align: center;
+            text-align: center !important;
         }
 
         animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
